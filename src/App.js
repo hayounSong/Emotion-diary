@@ -29,6 +29,12 @@ const dummyData=[
   content:"오늘의 일기 3번",
   date:1649538565688,
 },
+{
+  id:4,
+  emotion:4,
+  content:"오늘의 일기 4번",
+  date:1659538565688,
+},
 ]
 const reducer=(state,action)=>{
   let newState=[];
@@ -40,8 +46,8 @@ const reducer=(state,action)=>{
     const newItem={
       ...action.data
     };
-    newState=[newItem,...state]
-    break;
+    newState=[...state,newItem]
+    break; 
   }
   case 'REMOVE':{
     newState=state.filter((it)=>it.id!==action.targetId);
@@ -52,8 +58,9 @@ const reducer=(state,action)=>{
   }
   default:
     return state;
-  return newState;
+  
 };
+return newState;
 }
 
 
@@ -72,7 +79,7 @@ function App() {
   const onCreate=(date,content,emotion)=>{
     dispatch({type:"CREATE",
     data:{
-      od:dataId.current,
+      id:dataId.current,
       date:new Date(date).getTime(),
       content,
       emotion,

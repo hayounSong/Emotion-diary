@@ -5,7 +5,7 @@ import MyButton from "../components/MyButton";
 import DiaryList from "../components/DiaryList";
 const Home=()=>{
 
-    const diarylist=useContext(DiaryStaeteContext)
+    const diaryList=useContext(DiaryStaeteContext)
 
     const [data,setData]=useState([])
 
@@ -14,7 +14,7 @@ const Home=()=>{
     const headText=`${curDate.getFullYear()}년 ${curDate.getMonth()+1}월`
    
     useEffect(()=>{
-        if(diarylist.length>=1){
+        if(diaryList.length>=1){
         const firstDay=new Date(
             curDate.getFullYear(),
             curDate.getMonth(),
@@ -27,8 +27,8 @@ const Home=()=>{
         ).getTime();
         
 
-        setData(diarylist.filter((it)=>firstDay<=it.date&&it.date<=lastDay))}
-    },[diarylist,curDate])
+        setData(diaryList.filter((it)=>firstDay<=it.date&&it.date<=lastDay))}
+    },[diaryList,curDate])
 
   
     
