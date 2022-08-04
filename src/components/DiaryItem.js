@@ -6,7 +6,7 @@ const DiaryItem=({id,emotion,content,date})=>{
     // 년월로 바꿔주기
     return <div className="DiaryItem">
         <div className={["emotion_img_wrapper",`emotion_img_wrapper_${emotion}`].join(" ")}>
-            <img src={process.env.PUBLIC_URL+`assets/emotion${emotion}.png`}/>
+            <img src={process.env.PUBLIC_URL+`../assets/emotion${emotion}.png`}/>
         </div>
         <div className="info_wrapper" onClick={()=>{
             navigate(`/diary/${id}`)
@@ -16,7 +16,7 @@ const DiaryItem=({id,emotion,content,date})=>{
         </div>
         <div className="btn_wrapper">
             <MyButton text={"수정하기"} onClick={()=>{
-                navigate(`/edit`)
+                navigate(`/edit/${id}`)
             }}></MyButton>
 
         </div>
