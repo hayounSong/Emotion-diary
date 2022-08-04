@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { DiaryStaeteContext } from "../App";
 import DiaryEditor from "../components/DiaryEditor";
 const env=process.env;
-    env.PUBLIC_URL=env.PUBLIC_URL || "../";
+    
 
 const Edit=()=>{
     const [originData,setOriginData]=useState();
