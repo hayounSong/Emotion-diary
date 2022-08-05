@@ -8,13 +8,16 @@ import {getStringDate} from "../util/date"
 import { emotionList } from "../util/emotion";
 
 const DiaryEditor=({isEdit,originData})=>{
-    const {onCreate,onEdit}=useContext(DiaryDispatchContext)
+    const {onCreate,onEdit,onRemove}=useContext(DiaryDispatchContext)
     const contentRef=useRef();
     const [content,setContent]=useState("")
     const [emotion,setEmotion]=useState(3);
     const navigate=useNavigate();
     const [date,setDate]=useState(getStringDate(new Date()));
-    
+    const handleRemove=()=>{
+        onRemove(originData.id)
+        navigate('/',{replace:true})
+    }
     const handleSubmit=()=>{
         if(content.length<1){
             contentRef.current.focus()
@@ -42,6 +45,7 @@ const DiaryEditor=({isEdit,originData})=>{
 
         <MyHeader headText={isEdit? "일기 수정하기":"새로운 일기 쓰기"} leftChild={
             <MyButton text={"< 뒤로가기"} onClick={()=>{navigate(-1)}}></MyButton>}
+            rightChild={isEdit&& <MyButton text={"삭제하기"} onClick={handleRemove} type={"negative"}></MyButton>}
             />
 
             <div>

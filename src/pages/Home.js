@@ -24,6 +24,9 @@ const Home=()=>{
             curDate.getFullYear(),
             curDate.getMonth()+1,
             0,
+            23,
+            59,
+            59
         ).getTime();
         
 
