@@ -53,13 +53,15 @@ function App() {
     const localData=localStorage.getItem('diary');
     if(localData){
       const diaryList=JSON.parse(localData).sort((a,b)=>parseInt(b.iD)-parseInt(a.iD))
+      
+      if(diaryList.length>=1){
       dataId.current=parseInt(diaryList[0].id)+1
 
-      dispatch({type:"INIT",data:diaryList});
+      dispatch({type:"INIT",data:diaryList});}
     }
   },[])
 
-  const dataId=useRef(6);
+  const dataId=useRef(0);
 
   const onCreate=(date,content,emotion)=>{
     dispatch({type:"CREATE",

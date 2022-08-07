@@ -2,6 +2,7 @@ import { useState } from "react"
 import MyButton from "./MyButton"
 import { useNavigate } from "react-router-dom"
 import DiaryItem from "./DiaryItem"
+import React from "react"
 const sortOptionList=[
     {value:"latest",name:"최신순"},
     {value:"ordest",name:"오래된 순"},

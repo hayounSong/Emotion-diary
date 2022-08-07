@@ -5,13 +5,17 @@ import MyButton from "../components/MyButton";
 import MyHeader from "../components/MyHeader";
 import {getStringDate} from "../util/date.js"
 import { emotionList } from "../util/emotion";
-
+import React from "react";
 const Diary=()=>{
     const navigate=useNavigate();
     const DiaryList=useContext(DiaryStaeteContext)
     const {id}=useParams();
     const [indata,setindata]=useState()
     
+    useEffect(()=>{
+        const titleElement=document.getElementsByTagName('title')[0];
+        titleElement.innerHTML=`감정 일기장 - ${id}번 일기`
+    },[])
     useEffect(()=>{
         if(DiaryList.length>=1){
             const targetDiary=DiaryList.find((it)=>parseInt(it.id)===parseInt(id))

@@ -3,6 +3,7 @@ import { DiaryStaeteContext } from "../App";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
 import DiaryList from "../components/DiaryList";
+import React from "react";
 const Home=()=>{
 
     const diaryList=useContext(DiaryStaeteContext)

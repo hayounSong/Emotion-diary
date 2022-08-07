@@ -6,7 +6,7 @@ import MyButton from "./MyButton";
 import MyHeader from "./MyHeader";
 import {getStringDate} from "../util/date"
 import { emotionList } from "../util/emotion";
-
+import React from "react";
 
 
 const DiaryEditor=({isEdit,originData})=>{
