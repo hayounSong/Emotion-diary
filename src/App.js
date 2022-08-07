@@ -57,7 +57,7 @@ function App() {
 
       dispatch({type:"INIT",data:diaryList});
     }
-  })
+  },[])
 
   const dataId=useRef(6);
 
